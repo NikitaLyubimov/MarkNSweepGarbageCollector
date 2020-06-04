@@ -32,7 +32,7 @@ typedef struct StackFrame{
 
 
 void gcInit(size_t heapSize);
-void gcMalloc(size_t size);
+void* gcMalloc(size_t size);
 void gcStackPush(void*);
 void gcStackPop();
 void gcMark();

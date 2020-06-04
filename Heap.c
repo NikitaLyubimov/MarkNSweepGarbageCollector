@@ -59,7 +59,7 @@ void* heapAllocate(Heap* heap, size_t size)
     }
 
     Object* newObject = (Object*)POINTER_OFFSET(heap->data, heap->offset);
-    newObject->metadata.flag = UNMARKED;
+    newObject->metadata.flag = MARKED;
     newObject->metadata.padding = padding;
     newObject->metadata.size = size;
 
