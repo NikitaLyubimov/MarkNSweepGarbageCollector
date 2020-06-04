@@ -1,6 +1,3 @@
-#ifndef GARBAGECOLLECTOR_H
-#define GARBAGECOLLECTOR_H
-
 #include"Heap.h"
 #include<stdio.h>
 
@@ -99,6 +96,3 @@ void gcCollect()
 
     gcUnlock();
 }
-
-#endif
-

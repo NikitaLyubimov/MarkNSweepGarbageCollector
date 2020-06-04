@@ -1,3 +1,6 @@
+#ifndef GARBAGECOLLECTOR_H
+#define GARBAGECOLLECTOR_H
+
 #include<stdlib.h>
 #include<stdbool.h>
 
@@ -37,4 +40,6 @@ void gcStackPush(void*);
 void gcStackPop();
 void gcMark();
 void gcSweep();
-void gcCollect();   
+void gcCollect(); 
+
+#endif
