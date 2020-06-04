@@ -26,7 +26,7 @@ typedef struct Object{
 }Object;
 
 typedef struct StackFrame{
-    StackFrame* parent;
+    struct StackFrame* parent;
     void* data;
 }StackFrame;
 

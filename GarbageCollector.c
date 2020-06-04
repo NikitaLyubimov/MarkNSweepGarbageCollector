@@ -1,4 +1,8 @@
+#ifndef GARBAGECOLLECTOR_H
+#define GARBAGECOLLECTOR_H
+
 #include"Heap.h"
+#include<stdio.h>
 
 static pthread_mutex_t gcMutex;
 static pthread_key_t gcStackKey;
@@ -6,7 +10,7 @@ static pthread_key_t gcStackKey;
 static Heap* heap = NULL;
 
 static inline void gcLock(){ pthread_mutex_lock(&gcMutex); }
-static inline void gcUnlock(){ pthread_mutex_unlock(&gcLock); }
+static inline void gcUnlock(){ pthread_mutex_unlock(&gcMutex); }
 
 void gcInit(size_t heapSize)
 {
@@ -86,5 +90,15 @@ void gcSweep()
     heapReduceMemory(heap);
 }
 
+void gcCollect()
+{
+    gcLock();
 
+    gcMark();
+    gcSweep();
+
+    gcUnlock();
+}
+
+#endif
 
